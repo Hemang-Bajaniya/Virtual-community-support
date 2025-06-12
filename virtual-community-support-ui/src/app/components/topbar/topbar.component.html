@@ -1,0 +1,9 @@
+<div class="ml-64 bg-gray-100 p-4 flex justify-between items-center border-b">
+    <div>{{ currentDate | date:'fullDate' }} {{ currentTime }}</div>
+    <div class="relative group">
+        <span class="cursor-pointer font-semibold">Welcome Admin ▾</span>
+        <div class="absolute hidden group-hover:block right-0 mt-2 w-32 bg-white shadow border">
+            <a class="block px-4 py-2 hover:bg-gray-100" routerLink="/logout">Logout</a>
+        </div>
+    </div>
+</div>

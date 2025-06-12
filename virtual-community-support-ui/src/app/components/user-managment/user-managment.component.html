@@ -1,0 +1,8 @@
+<app-sidebar></app-sidebar>
+<app-topbar></app-topbar>
+
+<app-user-table [users]="users" (addUser)="showForm()" (editUser)="edit(user)"
+    (deleteUser)="confirmDelete(user)"></app-user-table>
+
+<app-user-form *ngIf="formVisible" [user]="selectedUser" (close)="hideForm()"></app-user-form>
+<app-confirm-delete *ngIf="deleteVisible" (confirm)="delete()" (cancel)="cancelDelete()"></app-confirm-delete>

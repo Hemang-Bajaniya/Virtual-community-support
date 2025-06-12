@@ -1,0 +1,105 @@
+<div class="container-fluid ps-md-0">
+    <div class="row g-0">
+
+        <div class="d-none d-lg-flex col-md-6 col-lg-8 position-relative">
+            <img src="assets/Images/image.png" alt="No Image" class="w-100" />
+            <div class="carousel-caption d-md-block">
+                <p class="heading">Sed ut perspiciatis unde omnis iste natus voluptatem.</p>
+                <p class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua...
+                </p>
+            </div>
+        </div>
+
+
+        <div class="col-md-6 col-lg-4">
+            <div class="login d-flex align-items-center py-3">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <h1 style="text-align: center; color: orange;">Register</h1>
+                        <div class="col-12 col-sm-10 col-md-11 col-lg-10">
+
+                            <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                                <!-- First Name -->
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label">First Name</label>
+                                    <input type="text" class="form-control" formControlName="firstName"
+                                        placeholder="Enter your first name" />
+                                    <div class="text-danger" *ngIf="firstName?.touched && firstName?.invalid">
+                                        First name is required
+                                    </div>
+                                </div>
+
+                                <!-- Last Name -->
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label">Last Name</label>
+                                    <input type="text" class="form-control" formControlName="lastName"
+                                        placeholder="Enter your last name" />
+                                    <div class="text-danger" *ngIf="lastName?.touched && lastName?.invalid">
+                                        Last name is required
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label">Email Address</label>
+                                    <input type="email" class="form-control" formControlName="email"
+                                        placeholder="Enter your email" />
+                                    <div class="text-danger" *ngIf="email?.touched && email?.invalid">
+                                        <div *ngIf="email?.errors?.['required']">Email is required</div>
+                                        <div *ngIf="email?.errors?.['email']">Invalid email format</div>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label">Password</label>
+                                    <input type="password" class="form-control" formControlName="password"
+                                        placeholder="Enter your password" />
+                                    <div class="text-danger" *ngIf="password?.touched && password?.invalid">
+                                        <div *ngIf="password?.errors?.['required']">Password is required</div>
+                                        <div *ngIf="password?.errors?.['minlength']">Password must be at least 6
+                                            characters</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-grid mt-4 mb-4">
+                                    <button type="submit" class="btn-login" style="cursor: pointer;"
+                                        [disabled]="(loading$ | async)">
+                                        <span class="Login">Register</span>
+                                    </button>
+
+                                    <div *ngIf="loading$ | async" class="spinner-container">
+                                        <div class="spinner"></div>
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <p class="Lost">
+                                            Already have an account?
+                                            <span>
+                                                <a [routerLink]="['/login']"
+                                                    routerLinkActive="router-link-active">Login</a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="text-center mb-3">
+                        <a routerLink="/privacyPolicy" class="privacy-policy"
+                            style="text-decoration: none;cursor:pointer;color: black;">
+                            Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

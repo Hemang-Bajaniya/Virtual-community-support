@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="login-card">
+        <h2 class="login-title">User Profile</h2>
+
+        <div *ngIf="loading" class="text-center">
+            <p>Loading profile data...</p>
+        </div>
+
+        <div *ngIf="error && !loading" class="text-center">
+            <p style="color: red;">{{ error }}</p>
+        </div>
+
+        <div *ngIf="user && !loading">
+            <div class="login-form">
+                <div>
+                    <label class="form-label">First Name</label>
+                    <input class="form-input" type="text" [value]="user.firstName" disabled>
+                </div>
+
+                <div>
+                    <label class="form-label">Last Name</label>
+                    <input class="form-input" type="text" [value]="user.lastName" disabled>
+                </div>
+
+                <div>
+                    <label class="form-label">Email</label>
+                    <input class="form-input" type="email" [value]="user.email" disabled>
+                </div>
+
+                <div>
+                    <label class="form-label">Phone Number</label>
+                    <input class="form-input" type="tel" [value]="user.phoneNumber" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

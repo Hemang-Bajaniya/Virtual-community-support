@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="login-card">
+        <h2 class="login-title">Add User</h2>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+            <div>
+                <label class="form-label">First Name</label>
+                <input formControlName="firstName" class="form-input" placeholder="Enter first name" />
+            </div>
+
+            <div>
+                <label class="form-label">Last Name</label>
+                <input formControlName="lastName" class="form-input" placeholder="Enter last name" />
+            </div>
+
+            <div>
+                <label class="form-label">Phone Number</label>
+                <input formControlName="phoneNumber" class="form-input" placeholder="Enter phone number" />
+            </div>
+
+            <div>
+                <label class="form-label">Email</label>
+                <input formControlName="email" class="form-input" placeholder="Enter email" />
+            </div>
+
+            <div>
+                <label class="form-label">Password</label>
+                <input formControlName="password" type="password" class="form-input" placeholder="Enter password" />
+            </div>
+
+            <div>
+                <label class="form-label">Confirm Password</label>
+                <input formControlName="confirmPassword" type="password" class="form-input"
+                    placeholder="Confirm password" />
+            </div>
+
+            <button type="submit" class="login-button">Register</button>
+        </form>
+    </div>
+</div>

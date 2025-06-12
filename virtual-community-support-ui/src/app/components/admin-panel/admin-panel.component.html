@@ -1,0 +1,30 @@
+<div class="admin-container">
+    <header class="admin-header">
+        <h1>Welcome, Admin</h1>
+        <p>Here’s the list of all registered users.</p>
+    </header>
+
+    <div *ngIf="loading" class="loading">Loading users...</div>
+    <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+    <table *ngIf="!loading && users.length" class="user-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.emailaddress }}</td>
+                <td>{{ user.phonenumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

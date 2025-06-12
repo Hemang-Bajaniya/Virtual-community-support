@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="login-card">
+        <div>
+            <h2 class="login-title bg-blue-400">
+                Login to Your Account
+            </h2>
+        </div>
+
+        <form class="login-form" (submit)="login()">
+            <div>
+                <label for="email" class="form-label">Email</label>
+                <div class="input-wrapper">
+                    <input id="email" [(ngModel)]="user.email" name="email" type="email" placeholder="you@example.com"
+                        required class="form-input" />
+                </div>
+            </div>
+
+            <div>
+                <label for="password" class="form-label">Password</label>
+                <div class="input-wrapper">
+                    <input id="password" [(ngModel)]="user.password" name="password" type="password"
+                        placeholder="Enter your password" required class="form-input" />
+                </div>
+            </div>
+
+            <div>
+                <button [disabled]="loading" type="submit" class="login-button">
+                    Login
+                </button>
+            </div>
+            <div *ngIf="loading" class="spinner-container">
+                <div class="spinner"></div>
+            </div>
+        </form>
+
+        <p style="text-align: center; margin-top: 1rem; color: #4b5563;">
+            Don't have an account?
+            <a routerLink="/register" style="color: #ff6900; font-weight: 500;">Register</a>
+        </p>
+    </div>
+</div>
